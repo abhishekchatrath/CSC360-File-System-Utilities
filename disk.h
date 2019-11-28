@@ -31,7 +31,7 @@ struct __attribute__((__packed__)) dir_entry_t {
     __uint8_t unused[6];
 };
 
-int blockSize = 512;
+int blockSize = 512;    /* 512 bytes */
 
 struct SuperBlockInfo {
     char        fileSystemIdentifier[8];
