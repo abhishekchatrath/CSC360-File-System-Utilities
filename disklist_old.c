@@ -67,8 +67,8 @@ void displaySuperBlockInfo() {
 
 
 struct dir_entry_t** analyzeRootDirectory() {
-    // numRootDirEntries = superBlockInfo.root_dir_block_count * 8;
-    numRootDirEntries = 8;
+    numRootDirEntries = superBlockInfo.root_dir_block_count * 8;
+    // numRootDirEntries = 8;
     struct dir_entry_t** directoryEntries = readDirectoryEntries(superBlockInfo.root_dir_start_block);
     return directoryEntries;
 }
@@ -274,7 +274,7 @@ struct dir_entry_t** analyzeSubDirectory(struct dir_entry_t* searchDirectoryEntr
         offset += sizeof(struct dir_entry_t) * 8;                                                       // calibrate offset for append to directoryEntries using memcpy
         currentBlock = getNextBlock(currentBlock);                                                      // get next block from FAT
         blockCtr++;
-        free(currentDirectoryEntries);
+        // free(currentDirectoryEntries);
     }
 
     return directoryEntries;
